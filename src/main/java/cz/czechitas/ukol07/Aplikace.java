@@ -4,7 +4,10 @@ package cz.czechitas.ukol07;
  * Spouštěcí třída aplikace
  */
 public class Aplikace {
-    //TODO Ve třídě Aplikace vytvořte spouštěcí metodu main. V této metodě vytvořte instanci třídy KnihaSluzba.
+    //Ve třídě Aplikace vytvořte spouštěcí metodu main. V této metodě vytvořte instanci třídy KnihaSluzba.
+    public static void main(String[] args) {
+        new KnihaSluzba();
+    }
     //TODO Vypište do konzole (pomocí System.out) celkový počet knížek v naší malé databázi.
     //TODO Vypište do konzole názvy všech knížek, které napsal Karel Čapek.
     //TODO Vypište všechny knížky vydané poprvé v roce 1845. Výpis bude ve tvaru jméno autora: název knihy.
