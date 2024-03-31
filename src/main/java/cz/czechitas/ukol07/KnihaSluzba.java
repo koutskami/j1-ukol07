@@ -32,7 +32,10 @@ public class KnihaSluzba {
 
     //vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih.
     public void vypisSeznamVsechKnih (){
-        listKnih.forEach(System.out::println); //nepodařilo se mi vytvořit toString
+        //listKnih.forEach(System.out::println); //nevypisuje string
+        for (Kniha kniha : listKnih) {
+            System.out.println(kniha.getAutor() + " : " + kniha.getNazev() + " (" + kniha.getRokVydani() + ") ");
+        }
     }
     //vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih od zadaného autora (jméno autora bude parametr metody). Vrácený seznam může být prázdný.
     public List<String> vypisSeznamKnihAutora (String autor){
@@ -41,7 +44,7 @@ public class KnihaSluzba {
                 .map(Kniha::getNazev)
                 .toList();
     }
-    //TODO vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih vydaných v zadaném roce (rok bude parametr metody). Vrácený seznam může být prázdný.
+    //vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih vydaných v zadaném roce (rok bude parametr metody). Vrácený seznam může být prázdný.
     public List<String> vypisNazevKnihyPodleRoku (int rokVydani){
         return listKnih.stream()
                 .filter(kniha -> kniha.getRokVydani().equals(rokVydani))

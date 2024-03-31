@@ -7,7 +7,7 @@ public class Aplikace {
     //Ve třídě Aplikace vytvořte spouštěcí metodu main. V této metodě vytvořte instanci třídy KnihaSluzba.
     public static void main(String[] args) {
         KnihaSluzba knihovna = new KnihaSluzba();
-        //knihovna.vypisSeznamVsechKnih();
+        knihovna.vypisSeznamVsechKnih();
         //Vypište do konzole (pomocí System.out) celkový počet knížek v naší malé databázi.
         System.out.println(knihovna.listKnih.size());
         //Vypište do konzole názvy všech knížek, které napsal Karel Čapek.
