@@ -2,31 +2,31 @@ package cz.czechitas.ukol07;
 
 public class Kniha {
     //autor string, nazev string, rokVydani int - struktura podle jsonu
-    private String autorKnihy;
-    private String nazevKnihy;
-    private Integer rokVydaniKnihy;
+    private String autor;
+    private String nazev;
+    private Integer rokVydani;
 
     //getter a setter pro autora knihy
-    public String getAutorKnihy() {
-        return autorKnihy;
+    public String getAutor() {
+        return autor;
     }
-    public void setAutorKnihy(String autorKnihy) {
-        this.autorKnihy = autorKnihy;
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     //getter a setter pro nazev knihy
-    public String getNazevKnihy() {
-        return nazevKnihy;
+    public String getNazev() {
+        return nazev;
     }
-    public void setNazevKnihy(String nazevKnihy) {
-        this.nazevKnihy = nazevKnihy;
+    public void setNazev(String nazev) {
+        this.nazev = nazev;
     }
 
     //getter a setter pro rok vydani knihy
-    public Integer getRokVydaniKnihy() {
-        return rokVydaniKnihy;
+    public Integer getRokVydani() {
+        return rokVydani;
     }
-    public void setRokVydaniKnihy(Integer rokVydaniKnihy) {
-        this.rokVydaniKnihy = rokVydaniKnihy;
+    public void setRokVydani(Integer rokVydani) {
+        this.rokVydani = rokVydani;
     }
 }
