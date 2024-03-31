@@ -13,7 +13,7 @@ public class Aplikace {
         //Vypište do konzole názvy všech knížek, které napsal Karel Čapek.
         System.out.println(knihovna.vypisSeznamKnihAutora("Karel Čapek"));
         //Vypište všechny knížky vydané poprvé v roce 1845. Výpis bude ve tvaru jméno autora: název knihy.
-        System.out.println(knihovna.vypisKnihyPodleRoku(1845));
+        knihovna.vypisKnihyPodleRoku(1845);
     }
 
 

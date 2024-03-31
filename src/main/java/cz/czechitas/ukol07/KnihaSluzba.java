@@ -8,6 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.function.Consumer;
 
 
 public class KnihaSluzba {
@@ -41,12 +42,26 @@ public class KnihaSluzba {
                 .toList();
     }
     //TODO vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih vydaných v zadaném roce (rok bude parametr metody). Vrácený seznam může být prázdný.
-    public List<String> vypisKnihyPodleRoku (int rokVydani){
+    public List<String> vypisNazevKnihyPodleRoku (int rokVydani){
         return listKnih.stream()
                 .filter(kniha -> kniha.getRokVydani().equals(rokVydani))
                 .map(Kniha::getNazev) //zatím vypisuju jen jedno hodnotu
                 .toList();
+        }
+
+    public List<Kniha> filtrovaniKnihPodleRoku (int rokVydani){
+        return listKnih.stream()
+                .filter(kniha -> kniha.getRokVydani().equals(rokVydani))
+                .toList();
     }
-    //TODO Napište testy pro metody. Nezapomeňte otestovat i okrajové případy – metoda pro výběr knih dle autora nebo orku nevrátí žádnou knížku nebo vrátí více knih.
+
+    public void vypisKnihyPodleRoku(int rokVydani){
+        for (int i = 0; i < filtrovaniKnihPodleRoku(rokVydani).size(); i++) {
+            System.out.println(filtrovaniKnihPodleRoku(rokVydani).get(i).getAutor() + " : " + filtrovaniKnihPodleRoku(rokVydani).get(i).getNazev());
+        }
+    }
+
+
+//TODO Napište testy pro metody. Nezapomeňte otestovat i okrajové případy – metoda pro výběr knih dle autora nebo orku nevrátí žádnou knížku nebo vrátí více knih.
 
 }
