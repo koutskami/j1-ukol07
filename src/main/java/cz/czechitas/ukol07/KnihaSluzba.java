@@ -8,7 +8,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.function.Consumer;
 
 
 public class KnihaSluzba {
@@ -35,7 +34,7 @@ public class KnihaSluzba {
         //listKnih.forEach(System.out::println); //nevypisuje string
         for (Kniha kniha : listKnih) {
             System.out.println(kniha.getAutor() + " : " + kniha.getNazev() + " (" + kniha.getRokVydani() + ") ");
-        }
+        } //kdybych to chtěla celý vypsat jako string
     }
     //vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih od zadaného autora (jméno autora bude parametr metody). Vrácený seznam může být prázdný.
     public List<String> vypisSeznamKnihAutora (String autor){
@@ -45,22 +44,15 @@ public class KnihaSluzba {
                 .toList();
     }
     //vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih vydaných v zadaném roce (rok bude parametr metody). Vrácený seznam může být prázdný.
-    public List<String> vypisNazevKnihyPodleRoku (int rokVydani){
-        return listKnih.stream()
-                .filter(kniha -> kniha.getRokVydani().equals(rokVydani))
-                .map(Kniha::getNazev) //zatím vypisuju jen jedno hodnotu
-                .toList();
-        }
-
+    //Výpis bude ve tvaru jméno autora: název knihy.
     public List<Kniha> filtrovaniKnihPodleRoku (int rokVydani){
         return listKnih.stream()
                 .filter(kniha -> kniha.getRokVydani().equals(rokVydani))
                 .toList();
     }
-
     public void vypisKnihyPodleRoku(int rokVydani){
         for (int i = 0; i < filtrovaniKnihPodleRoku(rokVydani).size(); i++) {
-            System.out.println(filtrovaniKnihPodleRoku(rokVydani).get(i).getAutor() + " : " + filtrovaniKnihPodleRoku(rokVydani).get(i).getNazev());
+            System.out.println((filtrovaniKnihPodleRoku(rokVydani).get(i).getAutor() + " : " + filtrovaniKnihPodleRoku(rokVydani).get(i).getNazev()));
         }
     }
 }
