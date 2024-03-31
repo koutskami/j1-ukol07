@@ -6,11 +6,15 @@ package cz.czechitas.ukol07;
 public class Aplikace {
     //Ve třídě Aplikace vytvořte spouštěcí metodu main. V této metodě vytvořte instanci třídy KnihaSluzba.
     public static void main(String[] args) {
-        new KnihaSluzba();
+        KnihaSluzba knihovna = new KnihaSluzba();
+        //knihovna.vypisSeznamVsechKnih();
+        //Vypište do konzole (pomocí System.out) celkový počet knížek v naší malé databázi.
+        System.out.println(knihovna.listKnih.size());
+        //Vypište do konzole názvy všech knížek, které napsal Karel Čapek.
+        System.out.println(knihovna.vypisSeznamKnihAutora("Karel Čapek"));
+        //Vypište všechny knížky vydané poprvé v roce 1845. Výpis bude ve tvaru jméno autora: název knihy.
+        System.out.println(knihovna.vypisKnihyPodleRoku(1845));
     }
-    //TODO Vypište do konzole (pomocí System.out) celkový počet knížek v naší malé databázi.
-    //TODO Vypište do konzole názvy všech knížek, které napsal Karel Čapek.
-    //TODO Vypište všechny knížky vydané poprvé v roce 1845. Výpis bude ve tvaru jméno autora: název knihy.
 
 
     //BONUS

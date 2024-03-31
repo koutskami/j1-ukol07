@@ -27,9 +27,26 @@ public class KnihaSluzba {
                 throw new RuntimeException(e);
         }
     }
-    //TODO vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih.
-    //TODO vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih od zadaného autora (jméno autora bude parametr metody). Vrácený seznam může být prázdný.
+
+
+    //vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih.
+    public void vypisSeznamVsechKnih (){
+        listKnih.forEach(System.out::println); //nepodařilo se mi vytvořit toString
+    }
+    //vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih od zadaného autora (jméno autora bude parametr metody). Vrácený seznam může být prázdný.
+    public List<String> vypisSeznamKnihAutora (String autor){
+        return listKnih.stream()
+                .filter(kniha -> kniha.getAutor().equals(autor))
+                .map(Kniha::getNazev)
+                .toList();
+    }
     //TODO vytvořte vhodně pojmenovanou metodu, která vrátí seznam (List) všech knih vydaných v zadaném roce (rok bude parametr metody). Vrácený seznam může být prázdný.
+    public List<String> vypisKnihyPodleRoku (int rokVydani){
+        return listKnih.stream()
+                .filter(kniha -> kniha.getRokVydani().equals(rokVydani))
+                .map(Kniha::getNazev) //zatím vypisuju jen jedno hodnotu
+                .toList();
+    }
     //TODO Napište testy pro metody. Nezapomeňte otestovat i okrajové případy – metoda pro výběr knih dle autora nebo orku nevrátí žádnou knížku nebo vrátí více knih.
 
 }
