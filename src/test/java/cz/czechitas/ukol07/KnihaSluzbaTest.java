@@ -18,17 +18,20 @@ class KnihaSluzbaTest {
     void vypisSeznamKnihAutora() {
         KnihaSluzba knihovna = new KnihaSluzba();
         assertEquals(3,knihovna.vypisSeznamKnihAutora("Josef Čapek").size());
+        assertEquals(0, knihovna.vypisSeznamKnihAutora("Alois Nováček").size());
     }
 
     @Test
     void filtrovaniKnihPodleRoku() {
         KnihaSluzba knihovna = new KnihaSluzba();
-        assertEquals(1, knihovna.filtrovaniKnihPodleRoku(1929).size());
+        assertEquals(2, knihovna.filtrovaniKnihPodleRoku(1856).size());
+        assertEquals(0, knihovna.filtrovaniKnihPodleRoku(2030).size());
     }
 
     @Test
     void vypisKnihyPodleRoku() {
-        //KnihaSluzba knihovna = new KnihaSluzba();
-        //je to void a nevim jak jinak to udelat aby to slo testovat
+        KnihaSluzba knihovna = new KnihaSluzba();
+        assertEquals("Karel Čapek", knihovna.filtrovaniKnihPodleRoku(1935).getFirst().getAutor());
+        assertEquals("Povídejme si, děti", knihovna.filtrovaniKnihPodleRoku(1954).getFirst().getNazev());
     }
 }
