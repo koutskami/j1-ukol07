@@ -63,8 +63,4 @@ public class KnihaSluzba {
             System.out.println(filtrovaniKnihPodleRoku(rokVydani).get(i).getAutor() + " : " + filtrovaniKnihPodleRoku(rokVydani).get(i).getNazev());
         }
     }
-
-
-//TODO Napište testy pro metody. Nezapomeňte otestovat i okrajové případy – metoda pro výběr knih dle autora nebo orku nevrátí žádnou knížku nebo vrátí více knih.
-
 }
