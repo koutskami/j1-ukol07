@@ -11,27 +11,40 @@ class KnihaSluzbaTest {
     @Test
     void vypisSeznamVsechKnih() {
         KnihaSluzba knihovna = new KnihaSluzba();
-        assertEquals(14, knihovna.listKnih.size()); //nevim jak to udelat obecne
+        assertEquals(14, knihovna.listKnih.size());
     }
 
     @Test
     void vypisSeznamKnihAutora() {
         KnihaSluzba knihovna = new KnihaSluzba();
-        assertEquals(3,knihovna.vypisSeznamKnihAutora("Josef Čapek").size());
-        assertEquals(0, knihovna.vypisSeznamKnihAutora("Alois Nováček").size());
+        assertAll(
+                () -> assertEquals(3, knihovna.vypisSeznamKnihAutora("Josef Čapek").size()),
+                () -> assertEquals(0, knihovna.vypisSeznamKnihAutora("Alois Nováček").size())
+        );
     }
 
     @Test
     void filtrovaniKnihPodleRoku() {
         KnihaSluzba knihovna = new KnihaSluzba();
-        assertEquals(2, knihovna.filtrovaniKnihPodleRoku(1856).size());
-        assertEquals(0, knihovna.filtrovaniKnihPodleRoku(2030).size());
+        assertAll(
+                () -> assertEquals(2, knihovna.filtrovaniKnihPodleRoku(1856).size()),
+                () -> assertEquals(1, knihovna.filtrovaniKnihPodleRoku(1927).size()),
+                () -> assertEquals(0, knihovna.filtrovaniKnihPodleRoku(2030).size())
+        );
     }
 
     @Test
     void vypisKnihyPodleRoku() {
         KnihaSluzba knihovna = new KnihaSluzba();
-        assertEquals("Karel Čapek", knihovna.filtrovaniKnihPodleRoku(1935).getFirst().getAutor());
-        assertEquals("Povídejme si, děti", knihovna.filtrovaniKnihPodleRoku(1954).getFirst().getNazev());
+        assertAll(
+                //jeden autor, jeden název
+                () -> assertEquals("Karel Čapek", knihovna.filtrovaniKnihPodleRoku(1935).getFirst().getAutor()),
+                () -> assertEquals("Povídejme si, děti", knihovna.filtrovaniKnihPodleRoku(1954).getFirst().getNazev()),
+                //více autorů, více názvů
+                () -> assertEquals("Karel Čapek", knihovna.filtrovaniKnihPodleRoku(1932).getFirst().getAutor()),
+                () -> assertEquals("Apokryfy", knihovna.filtrovaniKnihPodleRoku(1932).getFirst().getNazev()),
+                () -> assertEquals("Josef Čapek", knihovna.filtrovaniKnihPodleRoku(1932).getLast().getAutor()),
+                () -> assertEquals("Devatero pohádek", knihovna.filtrovaniKnihPodleRoku(1932).getLast().getNazev())
+        );
     }
 }
